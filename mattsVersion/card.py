@@ -8,9 +8,15 @@ class Card():
 	def isSet(card1, card2, card3):
 		for i in range(Card.numFeatures):
 			s = set([card1.features[i],card2.features[i],card3.features[i]])
-			if not (len(s)==1 or len(s)==Card.setSizeå):
+			if not (len(s)==1 or len(s)==Card.setSize):
 					return False
 		return True
+
+	@staticmethod
+	def createCardSet(setSize, numFeatures):
+		import itertools
+		deck = {Card(list(i)) for i in itertools.product(range(setSize), repeat = numFeatures)}
+		return deck
 
 	def __init__(self, features):
 		self.features = features
