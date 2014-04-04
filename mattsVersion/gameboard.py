@@ -1,20 +1,22 @@
 from card import Card
 class GameBoard():
 	
-	def __init__(self, size,cellSize):
-		self.rows = size
-		self.cols = size
+	def __init__(self, boardSize,cellSize):
+		self.rows = boardSize
+		self.cols = boardSize
 		self.cellSize = cellSize
-		self.board = [[set()for _ in range(size)] for __ in range(size)]
+		self.board = [[set()for _ in range(self.cols)] 
+						for __ in range(self.rows)]
 
 	def inBounds(self, r,c):
 		return (0 <= r and r < self.rows) and ((0 <= c and c < self.cols))
+		
 	# Return a copy of the set of cards in cell (r,c)
 	def getCardsInCell(self, r, c):
 		return set(self.board[r][c])
 
 	def hasCards(self,r,c):
-		return not size(self.getCardsInCell(r,c)) == 0
+		return not len(self.getCardsInCell(r,c)) == 0
 
 	#Set the cards in cell (r,c) to be cards
 	def setCards(self, cards, r, c):
