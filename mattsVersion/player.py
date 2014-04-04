@@ -7,7 +7,7 @@ class Player():
 
 	def getId(self):
 		return self.id
-		
+
 	def getHand(self):
 		return self.hand
 

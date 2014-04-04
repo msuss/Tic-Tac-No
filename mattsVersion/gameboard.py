@@ -93,14 +93,15 @@ class GameBoard():
 		return self.scoreLines(playedCard, r, c)
 
 	def __str__(self):
-		s=""
+		s="---------------------------------\n"
 		for r in range(self.rows):
+			s += "||  "
 			for c in range(self.cols):
 				s += self.cardsToString(self.board[r][c])
 				s += "  ||  "
-			s=s[0:-6]
-			print s
-			s="--------------------------------\n"
+			s=s[0:-6] +"||"+ "\n"
+			s+="---------------------------------\n"
+		return s
 
 	# Make this a real method
 	def cardsToString(self, cards):
